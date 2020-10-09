@@ -1,7 +1,7 @@
 # Flutter Tutorial
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/DelVel/poapper_2020_2_flutter/flutter-logo/logo_lockup_flutter_horizontal.png" alt="img" width="40%;" />
+  <img src="https://github.com/DelVel/poapper_2020_2_flutter/blob/master/logo_lockup_flutter_horizontal.png?raw=true" alt="img" width="40%;" />
 </p>
 
 2020년 2학기 PoApper 모바일 세미나입니다.
