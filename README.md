@@ -57,4 +57,6 @@ cd poapper_2020_2_flutter
 
 이제 위젯의 배치 방법을 알았으니 배치를 해 보면 됩니다! 그런데 뭐가 있는지 알아야 배치를 하겠죠?
 
-이번 시간에는 다양한 위젯의 종류와 그것들의 기능을 알아 볼 것입니다! [lecture2](https://github.com/DelVel/poapper_2020_2_flutter/tree/master/lecture2)를 참조하세요!
+이번 시간에는 다양한 위젯의 종류와 그것들의 기능을 알아 볼 것입니다.
+
+자세한 내용은 [lecture2](https://github.com/DelVel/poapper_2020_2_flutter/tree/master/lecture2)를 참조하세요!
