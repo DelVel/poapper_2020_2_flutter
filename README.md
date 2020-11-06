@@ -49,6 +49,10 @@ git clone https://github.com/DelVel/poapper_2020_2_flutter
 cd poapper_2020_2_flutter
 ```
 
+## Lecture 0
+
+[여기서](https://postechackr-my.sharepoint.com/:f:/g/personal/computerpark_postech_ac_kr/Erehp4BdDmhOrjn0khbwOTcBrWvCufk4s-i4goDf9R6uDw?e=n4VCry) 녹화 영상을 보실 수 있습니다!
+
 ## Lecture 1
 
 기본적인 다트 문법과 위젯 레이아웃 설정 방법, 그리고 그것들의 크기가 어떻게 정해지는지를 배웠습니다. [lecture1](https://github.com/DelVel/poapper_2020_2_flutter/tree/master/lecture1)을 참조하세요!
