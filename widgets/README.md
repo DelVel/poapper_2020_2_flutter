@@ -106,7 +106,7 @@ ListView와 비슷하지만 리스트 도중이나 맨 위, 맨 아래 등 위�
 ### Hero
 
 히어로는...영상으로 보시는 것이 더 빠를 것 같습니다.
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/Be9UH1kXFDw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Hero](http://img.youtube.com/vi/Be9UH1kXFDw/0.jpg)](http://www.youtube.com/watch?v=Be9UH1kXFDw "Hero")
 
 ### Transition
 
