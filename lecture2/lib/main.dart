@@ -8,57 +8,119 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Poapper login',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      darkTheme: ThemeData.dark(),
+      home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class MyHomePage extends StatelessWidget {
+  MyHomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var idController = TextEditingController();
+    var pwController = TextEditingController();
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: AppBar(
+          flexibleSpace: Image.network("http://postech.ac.kr/wp-content/uploads/2020/08/header_logo_%EA%B5%AD%EB%AC%B8.png"),
+        ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+      body: Align(
+        alignment: Alignment.topCenter,
+        child: Card(
+          elevation: 15,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          margin: EdgeInsets.all(40),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      width: 80,
+                      height: 80,
+                      child: ClipRRect(
+                        child: Image.network("https://avatars1.githubusercontent.com/u/19258681?s=200&v=4"),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    Container(
+                      width: 30,
+                    ),
+                    Container(
+                      width: 200,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: "ID",
+                            ),
+                            controller: idController,
+                          ),
+                          SizedBox(height: 5),
+                          TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: "PW",
+                            ),
+                            controller: pwController,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 15),
+                Card(
+                  elevation: 5,
+                  child: Builder(
+                    builder: (BuildContext context) {
+                      return InkWell(
+                        onTap: () {
+                          var data = "not identified.";
+                          if (idController.text == "Poapper" && pwController.text == "flutter") data = "welcome!";
+                          Scaffold.of(context).showSnackBar(SnackBar(content: Text(data)));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
+                          child: Text("log me in!"),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+        onPressed: () {
+          print("FAB!");
+        },
+        child: Icon(Icons.add_ic_call),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          child: Center(
+            child: Text("bottom .."),
+          ),
+          height: 60,
+        ),
       ),
     );
   }
