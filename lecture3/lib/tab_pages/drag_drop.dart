@@ -51,7 +51,7 @@ class _DragDropState extends State<DragDrop> {
               );
             },
             onWillAccept: (data) {
-              return true;
+              return data == 'Flutter';
             },
             onAccept: (data) {
               setState(() {

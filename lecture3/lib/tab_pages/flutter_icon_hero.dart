@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FlutterHero extends StatelessWidget {
+class FlutterIconHero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -32,7 +32,7 @@ class _LogoHeroState extends State<LogoHero> with TickerProviderStateMixin {
     _animationController = AnimationController(
       duration: const Duration(milliseconds: 400),
       vsync: this,
-    );
+    )..forward();
     super.initState();
   }
 
@@ -44,7 +44,6 @@ class _LogoHeroState extends State<LogoHero> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    _animationController.forward();
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(100),

@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tuple/tuple.dart';
 
-import 'drag_drop.dart';
-import 'grid.dart';
-import 'hero.dart';
-import 'heroes_of_the_storm.dart';
+import 'tab_pages/custom_staggered_grid.dart';
+import 'tab_pages/drag_drop.dart';
+import 'tab_pages/flutter_icon_hero.dart';
+import 'tab_pages/heroes_of_the_storm.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,10 +30,22 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var tabList = <Tuple2<Tab, Widget>>[];
-    tabList.add(Tuple2(Tab(child: Text('drag & drop')), DragDrop()));
-    tabList.add(Tuple2(Tab(child: Text('rotation')), HIOS()));
-    tabList.add(Tuple2(Tab(child: Text('hero')), FlutterHero()));
-    tabList.add(Tuple2(Tab(child: Text('grid')), Grid()));
+    tabList.add(Tuple2(
+      Tab(child: Text('drag & drop')),
+      DragDrop(),
+    ));
+    tabList.add(Tuple2(
+      Tab(child: Text('rotation')),
+      HIOS(),
+    ));
+    tabList.add(Tuple2(
+      Tab(child: Text('hero')),
+      FlutterIconHero(),
+    ));
+    tabList.add(Tuple2(
+      Tab(child: Text('grid')),
+      CustomStaggeredGrid(),
+    ));
 
     return DefaultTabController(
       length: tabList.length,
