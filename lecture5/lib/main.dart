@@ -1,6 +1,5 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
+import 'package:html/parser.dart' show parse;
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Asynchronous'),
     );
   }
 }
@@ -29,13 +28,13 @@ class MyHomePage extends StatelessWidget {
     var client = Client();
     while (true) {
       try {
-        var response = await client.get('https://www.coindesk.com/price/bitcoin', headers: {'accept': '/*'});
-        print(response);
+        var response = await client.get('https://cors-anywhere.herokuapp.com/https://www.coindesk.com/price/bitcoin');
+        print('Got a future');
         yield response;
       } catch (XMLHttpRequest) {
         print('error!');
       }
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(Duration(seconds: 10));
     }
   })();
 
@@ -52,7 +51,10 @@ class MyHomePage extends StatelessWidget {
               stream: _btcStream,
               builder: (context, response) {
                 if (response.hasData) {
-                  return Text(response.data.body);
+                  var htmlBody = response.data.body;
+                  var parse2 = parse(htmlBody);
+                  var querySelector = parse2.querySelector('.price-large');
+                  return Text(querySelector.outerHtml);
                 } else if (response.connectionState == ConnectionState.waiting) {
                   return CircularProgressIndicator();
                 } else {
@@ -60,7 +62,7 @@ class MyHomePage extends StatelessWidget {
                 }
               },
             ),
-            FutureBuilder(
+            FutureBuilder<Response>(
               future: http.get('https://jsonplaceholder.typicode.com/posts'),
               builder: (context, response) {
                 if (response.hasData) {
